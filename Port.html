@@ -4,38 +4,50 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Minecraft Portfolio - Your Name</title>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        body { font-family: Arial, sans-serif; margin: 0; background: #1a1a1a; color: white; }
-        header { background: #2e7d32; padding: 20px; text-align: center; }
-        header h1 { margin: 0; }
-        .section { padding: 20px; max-width: 1000px; margin: auto; }
-        .gallery img { width: 100%; max-width: 300px; margin: 10px; border-radius: 8px; }
-        footer { background: #111; padding: 10px; text-align: center; font-size: 14px; }
+        body { margin: 0; font-family: 'Roboto', sans-serif; background: #1e1e1e; color: white; }
+        header { background: linear-gradient(135deg, #388e3c, #1b5e20); padding: 40px 20px; text-align: center; }
+        header h1 { font-family: 'Press Start 2P', cursive; font-size: 28px; margin: 0; }
+        header p { font-size: 16px; margin-top: 10px; color: #ddd; }
+        .section { padding: 40px 20px; max-width: 1200px; margin: auto; }
+        h2 { font-size: 24px; border-left: 5px solid #4caf50; padding-left: 10px; margin-bottom: 20px; }
+        .gallery { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; }
+        .gallery img { width: 100%; max-width: 300px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.4); transition: transform 0.3s ease; }
+        .gallery img:hover { transform: scale(1.05); }
+        .about { background: #2e2e2e; border-radius: 10px; padding: 20px; line-height: 1.6; }
+        footer { background: #111; padding: 20px; text-align: center; font-size: 14px; color: #aaa; }
+        @media (max-width: 768px) {
+            .gallery { flex-direction: column; align-items: center; }
+        }
     </style>
 </head>
 <body>
     <header>
         <h1>Your Minecraft Portfolio</h1>
-        <p>Created by Your Name</p>
+        <p>Showcasing my builds, textures, and Marketplace-ready creations</p>
     </header>
 
     <div class="section">
         <h2>About Me</h2>
-        <p>Hello! I'm a Minecraft creator who specializes in building, resource packs, and unique worlds.</p>
+        <div class="about">
+            <p>Hello! I'm a Minecraft creator specializing in building, texture packs, and custom maps. My work is designed for players who want immersive, high-quality experiences in the game. I’m applying to join the Minecraft Partner Program through Waypoint Studios to bring my ideas to the Marketplace.</p>
+        </div>
     </div>
 
     <div class="section">
         <h2>Projects</h2>
         <div class="gallery">
-            <img src="images/build1.jpg" alt="Build 1">
-            <img src="images/build2.jpg" alt="Build 2">
-            <img src="images/build3.jpg" alt="Build 3">
+            <img src="images/build1.jpg" alt="Project 1">
+            <img src="images/build2.jpg" alt="Project 2">
+            <img src="images/build3.jpg" alt="Project 3">
+            <img src="images/build4.jpg" alt="Project 4">
         </div>
     </div>
 
     <div class="section">
         <h2>Contact</h2>
-        <p>Email: youremail@example.com</p>
+        <p>Email: <a href="mailto:youremail@example.com" style="color:#4caf50;">youremail@example.com</a></p>
     </div>
 
     <footer>
