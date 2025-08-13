@@ -6,7 +6,6 @@
 <title>Minecraft Partner Program Portfolio - WILD DRS</title>
 <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 <style>
-    /* === ORIGINAL THEME === */
     body { margin: 0; font-family: 'Roboto', sans-serif; background: #1e1e1e; color: white; }
     header { background: linear-gradient(135deg, #388e3c, #1b5e20); padding: 40px 20px; text-align: center; }
     header h1 { font-family: 'Press Start 2P', cursive; font-size: 28px; margin: 0; }
@@ -21,7 +20,7 @@
         .videos { flex-direction: column; align-items: center; }
     }
 
-    /* === SLIDER STYLING === */
+    /* SLIDER */
     .slider-container {
         position: relative;
         max-width: 800px;
@@ -42,9 +41,14 @@
         width: 100%;
         display: block;
         border-radius: 10px;
+        transition: transform 0.4s ease;
+    }
+    /* Hover zoom */
+    .slide img:hover {
+        transform: scale(1.05);
     }
 
-    /* === NAV DOTS === */
+    /* NAV DOTS */
     .dots {
         text-align: center;
         margin-top: 10px;
@@ -91,7 +95,7 @@
 
 <div class="section">
     <h2>Projects</h2>
-    <div class="slider-container">
+    <div class="slider-container" id="sliderContainer">
         <div class="slider-wrapper" id="slider">
             <div class="slide"><img src="images/build1.jpg" alt="Project 1"></div>
             <div class="slide"><img src="images/build2.jpg" alt="Project 2"></div>
@@ -132,6 +136,7 @@ let currentSlide = 0;
 const slides = document.querySelectorAll('.slide');
 const slider = document.getElementById('slider');
 const dotsContainer = document.getElementById('dots');
+let slideInterval;
 
 // Create dots
 slides.forEach((_, i) => {
@@ -141,7 +146,6 @@ slides.forEach((_, i) => {
     dot.addEventListener('click', () => moveToSlide(i));
     dotsContainer.appendChild(dot);
 });
-
 const dots = document.querySelectorAll('.dot');
 
 function moveToSlide(index) {
@@ -160,8 +164,19 @@ function autoSlide() {
     moveToSlide(currentSlide);
 }
 
-// Auto-slide every 3 seconds
-setInterval(autoSlide, 3000);
+function startAutoSlide() {
+    slideInterval = setInterval(autoSlide, 3000);
+}
+function stopAutoSlide() {
+    clearInterval(slideInterval);
+}
+
+// Pause auto-slide when hovering
+document.getElementById('sliderContainer').addEventListener('mouseenter', stopAutoSlide);
+document.getElementById('sliderContainer').addEventListener('mouseleave', startAutoSlide);
+
+// Start slideshow
+startAutoSlide();
 </script>
 
 </body>
