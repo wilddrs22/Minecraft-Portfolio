@@ -5,37 +5,49 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Minecraft Partner Program Portfolio - WILD DRS</title>
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-   <style>
-    /* Add this inside your <style> tag */
-
-    .gallery img {
-        width: 100%;
-        max-width: 300px;
-        border-radius: 8px;
-        box-shadow: 0 4px 8px rgba(0,0,0,0.4);
-        transition: transform 0.3s ease;
-        opacity: 0;
-        transform: translateX(50px);
-        animation: slideIn 0.8s forwards;
-    }
-
-    .gallery img:nth-child(1) { animation-delay: 0.2s; }
-    .gallery img:nth-child(2) { animation-delay: 0.4s; }
-    .gallery img:nth-child(3) { animation-delay: 0.6s; }
-    .gallery img:nth-child(4) { animation-delay: 0.8s; }
-
-    .gallery img:hover {
-        transform: scale(1.05);
-    }
-
-    @keyframes slideIn {
-        to {
-            opacity: 1;
-            transform: translateX(0);
+    <style>
+        /* === ORIGINAL THEME === */
+        body { margin: 0; font-family: 'Roboto', sans-serif; background: #1e1e1e; color: white; }
+        header { background: linear-gradient(135deg, #388e3c, #1b5e20); padding: 40px 20px; text-align: center; }
+        header h1 { font-family: 'Press Start 2P', cursive; font-size: 28px; margin: 0; }
+        header p { font-size: 16px; margin-top: 10px; color: #ddd; }
+        .section { padding: 40px 20px; max-width: 1200px; margin: auto; }
+        h2 { font-size: 24px; border-left: 5px solid #4caf50; padding-left: 10px; margin-bottom: 20px; }
+        .gallery { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; }
+        .about, .skills, .downloads { background: #2e2e2e; border-radius: 10px; padding: 20px; line-height: 1.6; margin-bottom: 20px; }
+        .videos { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; }
+        .videos iframe { width: 100%; max-width: 560px; height: 315px; border: none; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.4); }
+        footer { background: #111; padding: 20px; text-align: center; font-size: 14px; color: #aaa; }
+        @media (max-width: 768px) {
+            .gallery, .videos { flex-direction: column; align-items: center; }
         }
-    }
-</style>
 
+        /* === IMAGE SLIDE ANIMATION === */
+        .gallery img {
+            width: 100%;
+            max-width: 300px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+            transition: transform 0.3s ease;
+            opacity: 0;
+            transform: translateX(50px);
+            animation: slideIn 0.8s forwards;
+        }
+
+        .gallery img:nth-child(1) { animation-delay: 0.2s; }
+        .gallery img:nth-child(2) { animation-delay: 0.4s; }
+        .gallery img:nth-child(3) { animation-delay: 0.6s; }
+        .gallery img:nth-child(4) { animation-delay: 0.8s; }
+
+        .gallery img:hover { transform: scale(1.05); }
+
+        @keyframes slideIn {
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+    </style>
 </head>
 <body>
     <header>
