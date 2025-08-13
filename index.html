@@ -1,111 +1,168 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Minecraft Partner Program Portfolio - WILD DRS</title>
-    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <style>
-        /* === ORIGINAL THEME === */
-        body { margin: 0; font-family: 'Roboto', sans-serif; background: #1e1e1e; color: white; }
-        header { background: linear-gradient(135deg, #388e3c, #1b5e20); padding: 40px 20px; text-align: center; }
-        header h1 { font-family: 'Press Start 2P', cursive; font-size: 28px; margin: 0; }
-        header p { font-size: 16px; margin-top: 10px; color: #ddd; }
-        .section { padding: 40px 20px; max-width: 1200px; margin: auto; }
-        h2 { font-size: 24px; border-left: 5px solid #4caf50; padding-left: 10px; margin-bottom: 20px; }
-        .gallery { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; }
-        .about, .skills, .downloads { background: #2e2e2e; border-radius: 10px; padding: 20px; line-height: 1.6; margin-bottom: 20px; }
-        .videos { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; }
-        .videos iframe { width: 100%; max-width: 560px; height: 315px; border: none; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.4); }
-        footer { background: #111; padding: 20px; text-align: center; font-size: 14px; color: #aaa; }
-        @media (max-width: 768px) {
-            .gallery, .videos { flex-direction: column; align-items: center; }
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Minecraft Partner Program Portfolio - WILD DRS</title>
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<style>
+    /* === ORIGINAL THEME === */
+    body { margin: 0; font-family: 'Roboto', sans-serif; background: #1e1e1e; color: white; }
+    header { background: linear-gradient(135deg, #388e3c, #1b5e20); padding: 40px 20px; text-align: center; }
+    header h1 { font-family: 'Press Start 2P', cursive; font-size: 28px; margin: 0; }
+    header p { font-size: 16px; margin-top: 10px; color: #ddd; }
+    .section { padding: 40px 20px; max-width: 1200px; margin: auto; }
+    h2 { font-size: 24px; border-left: 5px solid #4caf50; padding-left: 10px; margin-bottom: 20px; }
+    .about, .skills, .downloads { background: #2e2e2e; border-radius: 10px; padding: 20px; line-height: 1.6; margin-bottom: 20px; }
+    .videos { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; }
+    .videos iframe { width: 100%; max-width: 560px; height: 315px; border: none; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.4); }
+    footer { background: #111; padding: 20px; text-align: center; font-size: 14px; color: #aaa; }
+    @media (max-width: 768px) {
+        .videos { flex-direction: column; align-items: center; }
+    }
 
-        /* === IMAGE SLIDE ANIMATION === */
-        .gallery img {
-            width: 100%;
-            max-width: 300px;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
-            transition: transform 0.3s ease;
-            opacity: 0;
-            transform: translateX(50px);
-            animation: slideIn 0.8s forwards;
-        }
+    /* === SLIDER STYLING === */
+    .slider-container {
+        position: relative;
+        max-width: 800px;
+        margin: auto;
+        overflow: hidden;
+        border-radius: 10px;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+    }
+    .slider-wrapper {
+        display: flex;
+        transition: transform 0.8s ease-in-out;
+    }
+    .slide {
+        min-width: 100%;
+        box-sizing: border-box;
+    }
+    .slide img {
+        width: 100%;
+        display: block;
+        border-radius: 10px;
+    }
 
-        .gallery img:nth-child(1) { animation-delay: 0.2s; }
-        .gallery img:nth-child(2) { animation-delay: 0.4s; }
-        .gallery img:nth-child(3) { animation-delay: 0.6s; }
-        .gallery img:nth-child(4) { animation-delay: 0.8s; }
-
-        .gallery img:hover { transform: scale(1.05); }
-
-        @keyframes slideIn {
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-    </style>
+    /* === NAV DOTS === */
+    .dots {
+        text-align: center;
+        margin-top: 10px;
+    }
+    .dot {
+        height: 12px;
+        width: 12px;
+        margin: 0 4px;
+        background-color: #555;
+        border-radius: 50%;
+        display: inline-block;
+        transition: background-color 0.3s ease;
+        cursor: pointer;
+    }
+    .dot.active {
+        background-color: #4caf50;
+    }
+</style>
 </head>
 <body>
-    <header>
-        <h1>Minecraft Creator Portfolio</h1>
-        <p>Application for Minecraft Partner Program - Waypoint Studios</p>
-    </header>
 
-    <div class="section">
-        <h2>About Me</h2>
-        <div class="about">
-            <p>Hello! I'm a Minecraft creator specializing in building, texture packs, and addons. I focus on delivering Marketplace quality content that engages players through creativity, functionality, and balance.</p>
+<header>
+    <h1>Minecraft Creator Portfolio</h1>
+    <p>Application for Minecraft Partner Program - Waypoint Studios</p>
+</header>
+
+<div class="section">
+    <h2>About Me</h2>
+    <div class="about">
+        <p>Hello! I'm a Minecraft creator specializing in building, texture packs, and addons. I focus on delivering Marketplace quality content that engages players through creativity, functionality, and balance.</p>
+    </div>
+</div>
+
+<div class="section">
+    <h2>Skills & Specialties</h2>
+    <div class="skills">
+        <ul>
+            <li>Minecraft addon creation</li>
+            <li>Custom texture/resource pack creation</li>
+            <li>Custom skinpacks</li>
+        </ul>
+    </div>
+</div>
+
+<div class="section">
+    <h2>Projects</h2>
+    <div class="slider-container">
+        <div class="slider-wrapper" id="slider">
+            <div class="slide"><img src="images/build1.jpg" alt="Project 1"></div>
+            <div class="slide"><img src="images/build2.jpg" alt="Project 2"></div>
+            <div class="slide"><img src="images/build3.jpg" alt="Project 3"></div>
+            <div class="slide"><img src="images/build4.jpg" alt="Project 4"></div>
         </div>
     </div>
+    <div class="dots" id="dots"></div>
+</div>
 
-    <div class="section">
-        <h2>Skills & Specialties</h2>
-        <div class="skills">
-            <ul>
-                <li>Minecraft addon creation</li>
-                <li>Custom texture/resource pack creation</li>
-                <li>Custom skinpacks</li>
-            </ul>
-        </div>
+<div class="section">
+    <h2>Showcase Videos</h2>
+    <div class="videos">
+        <iframe src="https://www.youtube.com/embed/lI_wSXDjqjQ" title="Minecraft Showcase 1" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/5Zh1RdTDaN8" title="Minecraft Showcase 2" allowfullscreen></iframe>
     </div>
+</div>
 
-    <div class="section">
-        <h2>Projects</h2>
-        <div class="gallery">
-            <img src="images/build1.jpg" alt="Project 1">
-            <img src="images/build2.jpg" alt="Project 2">
-            <img src="images/build3.jpg" alt="Project 3">
-            <img src="images/build4.jpg" alt="Project 4">
-        </div>
+<div class="section">
+    <h2>Downloadable Samples</h2>
+    <div class="downloads">
+        <p><a href="#" style="color:#4caf50;">Download Sample Bedrock Copycats</a></p>
+        <p><a href="#" style="color:#4caf50;">Download Sample Wild PVP texture pack</a></p>
     </div>
+</div>
 
-    <div class="section">
-        <h2>Showcase Videos</h2>
-        <div class="videos">
-            <iframe src="https://www.youtube.com/embed/lI_wSXDjqjQ" title="Minecraft Showcase 1" allowfullscreen></iframe>
-            <iframe src="https://www.youtube.com/embed/5Zh1RdTDaN8" title="Minecraft Showcase 2" allowfullscreen></iframe>
-        </div>
-    </div>
+<div class="section">
+    <h2>Contact</h2>
+    <p>Email: <a href="mailto:play.wilddrs@gmail.com" style="color:#4caf50;">play.wilddrs@gmail.com</a></p>
+</div>
 
-    <div class="section">
-        <h2>Downloadable Samples</h2>
-        <div class="downloads">
-            <p><a href="#" style="color:#4caf50;">Download Sample Bedrock Copycats</a></p>
-            <p><a href="#" style="color:#4caf50;">Download Sample Wild PVP texture pack</a></p>
-        </div>
-    </div>
+<footer>
+    &copy; 2025 WILD DRS - Minecraft Portfolio
+</footer>
 
-    <div class="section">
-        <h2>Contact</h2>
-        <p>Email: <a href="mailto:play.wilddrs@gmail.com" style="color:#4caf50;">play.wilddrs@gmail.com</a></p>
-    </div>
+<script>
+let currentSlide = 0;
+const slides = document.querySelectorAll('.slide');
+const slider = document.getElementById('slider');
+const dotsContainer = document.getElementById('dots');
 
-    <footer>
-        &copy; 2025 WILD DRS - Minecraft Portfolio
-    </footer>
+// Create dots
+slides.forEach((_, i) => {
+    const dot = document.createElement('span');
+    dot.classList.add('dot');
+    if (i === 0) dot.classList.add('active');
+    dot.addEventListener('click', () => moveToSlide(i));
+    dotsContainer.appendChild(dot);
+});
+
+const dots = document.querySelectorAll('.dot');
+
+function moveToSlide(index) {
+    currentSlide = index;
+    slider.style.transform = `translateX(-${currentSlide * 100}%)`;
+    updateDots();
+}
+
+function updateDots() {
+    dots.forEach(dot => dot.classList.remove('active'));
+    dots[currentSlide].classList.add('active');
+}
+
+function autoSlide() {
+    currentSlide = (currentSlide + 1) % slides.length;
+    moveToSlide(currentSlide);
+}
+
+// Auto-slide every 3 seconds
+setInterval(autoSlide, 3000);
+</script>
+
 </body>
 </html>
